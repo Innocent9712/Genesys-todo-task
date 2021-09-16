@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Todo App</title>
+</head>
+<body>
+    <header>
+        <h2>A Simple Todo App</h2>
+    </header>
+    <main class="main">
+        <div class="form">
+            <p class="form-header">Add todo item below</p>
+            <div class="input-container">
+                <input type="text" name="item" id="input-field" placeholder="text here">
+                <button id="input-button">add</button>
+            </div>
+        </div>
+        <div class="edit-item">
+            <input type="text" name="edit-item" id="edit-item">
+            <button type="submit" id="done">done</button>
+        </div>
+        <ul class="todo-container"></ul>
+    </main>
+    <script src="./todo.js"></script>
+</body>
+</html>
