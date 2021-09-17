@@ -1,11 +1,8 @@
 const inputField = document.getElementById('input-field')
 const inputButton  = document.getElementById('input-button')
 const todoContainer = document.querySelector('.todo-container')
-const form = document.querySelector('.form')
-const remove = document.querySelector('.del')
-const update = doc.querySelector('.edit')
-const done = document.getElementById('done')
-const editItem = document.getElementById('edit-item')
+
+
 
 let todoItems = []
 
@@ -25,26 +22,57 @@ const addTodo = (input) => {
     }
 }
 
+const delFunc = (e) => {
+    let tagId = e.path[1].id
+    let tag = document.getElementById(`${tagId}`)
+    console.log(tag)
+    todoContainer.removeChild(tag)
+    for (let index = 0; index < todoItems.length; index++) {
+        const element = todoItems[index];
+        if (tagId == element.id) {
+            todoItems.splice(index, 1)
+            console.log(todoItems)
+        }
+        
+    }
+}
+
 const populateUi = (item) => {
     if (item) {
-        let todoItem = document.createElement('li')
-        let itemText = document.createElement('p')
-        let edit = document.createElement('button')
-        let del = document.createElement('button')
-        let buttonContainer = document.createElement('div')
-        todoItem.setAttribute('id', item.id)
-        itemText.innerHTML = item.todo
-        edit.innerHTML = 'edit'
-        del.innerHTML = 'del'
+        const edit = document.createElement('button')
+        const del = document.createElement('button')
+        const itemText = document.createElement('p')
+        const todoItem = document.createElement('li')
+
+
         itemText.classList.add('item-text')
         edit.classList.add('edit')
         del.classList.add('del')
-        buttonContainer.appendChild(edit)
-        buttonContainer.appendChild(del)
+
+        edit.innerHTML = 'edit'
+        del.innerHTML = 'del'
+
+
+        todoItem.setAttribute('id', item.id)
+        itemText.innerHTML = item.todo
         todoItem.appendChild(itemText)
-        todoItem.appendChild(buttonContainer)
+        todoItem.appendChild(edit)
+        todoItem.appendChild(del)
         todoContainer.appendChild(todoItem)
+
+        del.addEventListener('click', (e)=> {
+            delFunc(e)
+        })
+
+        edit.addEventListener('click', (e)=>{
+            let itemToEditId = e.path[1].id
+            let itemToEdit = document.getElementById(`${itemToEditId}`).firstChild
+            inputField.value = itemToEdit.innerHTML
+            delFunc(e)
+            
+        })
     }
+
 }
 
 inputButton.addEventListener('click', (e)=>{
@@ -57,14 +85,3 @@ document.addEventListener('keydown', (e)=> {
     }
 })
 
-remove.addEventListener('click', ()=>{
-
-})
-
-edit.addEventListener('click', ()=> {
-    
-})
-
-done.addEventListener('click', ()=> {
-
-})

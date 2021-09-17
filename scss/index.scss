@@ -2,4 +2,116 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+}
+
+button {
+    outline: none;
+    height: 2.3em;
+    padding: 0.4em 0.6em;
+    margin: 0.3em;
+    border: none;
+    color: #fff;
+}
+
+input[type=text] {
+    outline: none;
+    border: 1px solid rgb(165, 160, 161);
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border: 2px solid rgb(68, 65, 66);
+}
+
+body {
+    padding: 1.4em 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(244, 250, 235);
+}
+
+main {
+    width: 100%;
+    margin: 1.5em auto;
+
+    .form {
+        width: 90%;
+        margin:  0.8em auto;
+        background-color: rgb(230, 230, 230);
+        padding: 1em 0.8em;
+        border-radius: 8px;
+
+        input {
+            width: 65%;
+        };
+
+        button {
+            width: 25%;
+            background-color: rgb(106, 207, 103);
+
+            &:active {
+                background-color: rgb(27, 109, 27);
+            }
+        }
+
+    }
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(230, 230, 230);
+    min-height: 40vh;
+    border-radius: 8px;
+
+
+
+    li {
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        padding: 0.6em;
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0.6em auto;
+        align-items: center;
+
+        p {
+            width: 60%;
+            overflow-wrap: break-word;
+        }
+
+        button {
+            width: 15%;
+        }
+
+        .edit {
+            background-color: rgb(96, 128, 224);
+
+            &:active {
+                background-color: rgb(43, 72, 156);
+            }
+        }
+
+        .del {
+            background-color: rgb(231, 111, 111);
+
+            &:active {
+                background-color: rgb(179, 66, 66);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1023px) {
+
+    header {
+        margin: 1em;
+    }
+
+    main {
+        width: 70%;
+    }
 }
